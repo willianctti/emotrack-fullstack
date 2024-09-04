@@ -1,4 +1,5 @@
 import * as brain from 'brain.js';
+import { openDb } from './db';
 
 const net = new brain.recurrent.LSTM();
 
@@ -10,8 +11,10 @@ const initialTrainingData = [
   { input: 'Foi um dia normal, nada de especial aconteceu.', output: 'dia comum' }
 ];
 
-export async function trainAndPredict(additionalData: { input: string, output: string }[], input: string) {
-  const trainingData = [...initialTrainingData, ...additionalData].filter(item => item.input && item.output);
+export async function trainAndPredict(input: string) {
+  const db = await openDb();
+  const interactions = await db.all('SELECT input, output FROM interactions');
+  const trainingData = [...initialTrainingData, ...interactions].filter(item => item.input && item.output);
 
   if (trainingData.length === 0) {
     console.error('Não há dados de treinamento válidos');
