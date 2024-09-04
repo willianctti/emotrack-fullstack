@@ -1,6 +1,7 @@
 import InteractionForm from '../components/InteractionForm';
 import HistoryList from '../components/HistoryList';
 import styles from "./page.module.css";
+import Image from 'next/image';
 
 async function getHistory() {
   const res = await fetch('http://localhost:3000/api/history', { cache: 'no-store' });
@@ -15,8 +16,8 @@ export default async function Home() {
 
   return (
     <main className={styles.main}>
-      <h1 className={styles.title}>EmoTracker IA</h1>
       <div className={styles.container}>
+      <Image src="/emotrack.jpg" alt="Logo" width={300} height={300} />
         <div className={styles.formContainer}>
           <InteractionForm />
         </div>

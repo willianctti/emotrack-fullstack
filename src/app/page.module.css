@@ -1,10 +1,24 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(to bottom, #000, #012);
+}
+
+.bigContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+  background-color: black;
 }
 
 .description {
@@ -33,6 +47,15 @@
   border: 1px solid rgba(var(--callout-border-rgb), 0.3);
   border-radius: var(--border-radius);
 }
+
+.logo {
+  display: flex;
+  justify-content: center;
+  display: none;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
 
 .code {
   font-weight: 700;
@@ -108,7 +131,6 @@
 .logo {
   position: relative;
 }
-/* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
     background: rgba(var(--card-rgb), 0.1);
@@ -228,3 +250,4 @@
     transform: rotate(0deg);
   }
 }
+

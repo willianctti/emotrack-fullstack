@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState } from 'react';
+import './styles.css';
+
 
 export default function InteractionForm() {
   const [input, setInput] = useState('');
@@ -21,7 +23,8 @@ export default function InteractionForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+
+    <form onSubmit={handleSubmit} className="interaction-form">
       <input
         type="text"
         value={input}
@@ -31,5 +34,6 @@ export default function InteractionForm() {
       <button type="submit">Enviar</button>
       {result && <p>{result}</p>}
     </form>
+
   );
 }
